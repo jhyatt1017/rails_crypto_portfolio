@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  
   def index
     # adding moduels
     require 'net/http'

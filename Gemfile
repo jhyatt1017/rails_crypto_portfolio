@@ -33,8 +33,11 @@ gem 'jquery-rails'
 # bootstrap-sass v3.3.7
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 
-#devise gem
+# devise gem
 gem 'devise', '~> 4.4', '>= 4.4.3'
+
+# awesome print gem
+gem 'awesome_print', '~> 1.8'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
