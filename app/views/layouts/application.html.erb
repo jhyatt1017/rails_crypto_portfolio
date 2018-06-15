@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RailsCryptoPortfolio</title>
+    <title>Crypto Currency Portfolio</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -12,9 +12,9 @@
 
   <body>
     <%= render  "home/navbar" %> 
-  <div class="container">
-    <%= render  "home/flash" %>
-    <%= yield %>
-  </div>
+    <div class="container-fluid">
+      <%= render  "home/flash" %>
+      <%= yield %>
+    </div>
   </body>
 </html>

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   # homepage path
   root 'home#index' 
   # about page path
