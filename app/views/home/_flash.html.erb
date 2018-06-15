@@ -1,0 +1,13 @@
+<%# flash message to occur in each loop that sends out a name and message%>
+<% flash.each do |name, msg| %>
+  <%# for each message that appears style using css/bootstrap   %>
+  <div class="alert alert-warning alert-dismissible">
+      <button class="close" data-dismiss="alert" >
+        <i class="glyphicon glyphicon-remove-circle"></i>
+      </button>
+      <%= content_tag(:div, msg) %>
+  </div>
+<% end %>
+
+
+
