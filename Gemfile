@@ -39,6 +39,9 @@ gem 'devise', '~> 4.4', '>= 4.4.3'
 # awesome print gem
 gem 'awesome_print', '~> 1.8'
 
+# simple form gem
+gem 'simple_form', '~> 4.0', '>= 4.0.1'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

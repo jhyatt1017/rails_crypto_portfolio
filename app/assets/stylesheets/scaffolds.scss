@@ -83,3 +83,29 @@ label {
   display: block;
 }
 
+body {
+  background-image: image-url("bg.jpg");
+  background-position: center center;
+	background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+a, td, h1, body, p {
+  font-family: 'Eater', cursive;
+  font-family: 'Poor Story', cursive;
+  font-family: 'Jura', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #000;
+  letter-spacing: 1px
+}
+
+.navbar {
+  opacity: .8;
+}
+
+.jumbotron {
+  opacity: .8;
+  background-color: #fff;
+}

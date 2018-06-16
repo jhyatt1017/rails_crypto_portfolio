@@ -1,7 +1,7 @@
 
 
 <div class="row">
-  <div class="col-md-10">
+  <div class="col-md-12">
     <div class="panel panel-primary">
       <div class="panel-heading">
         <h1 class="panel-title">Cryptos</h1>
@@ -12,16 +12,14 @@
           <thead>
             <tr>
               <th>Crypto Name</th>
-              <th>Current Price</th>
               <th>Rank</th>
-              <th>1 Hour</th>
-              <th>24 Hour</th>
-              <th>7 Day</th>
-              <th>Total Value</th>
-              <th>Total Paid</th>
-              <th>Profit / Loss</th>
+              <th>Current Price</th>
               <th>Cost Paid Per</th>
+              <th>Total Paid</th>
+              <th>Total Value</th>
               <th>Amount Owned</th>
+              <th>Profit / Loss</th>
+
             </tr>
           </thead>
 
@@ -35,19 +33,19 @@
                   <% for x in @lookup_crypto %>
                     <% if crypto.symbol == x["symbol"] %>
                       <td><%= link_to x["name"], crypto %></td>
-                      <td>$<%= x["price_usd"] %></td>
                       <td><%= x["rank"] %></td>
-                      <td><%= x["percent_change_1h"] %>%</td>
-                      <td><%= x["percent_change_24h"] %>%</td>
-                      <td><%= x["percent_change_7d"] %>%</td>
-                      <td>$<%= x["price_usd"].to_d * crypto.amount_owned %></td>
+                      <td>$<%= x["price_usd"] %></td>
+
+                      <td>$<%= crypto.cost_per %></td>
                       <td>$<%= crypto.cost_per * crypto.amount_owned %></td>
+                      <td>$<%= x["price_usd"].to_d * crypto.amount_owned %></td>
                       <td>$<%= (x["price_usd"].to_d * crypto.amount_owned) - (crypto.cost_per * crypto.amount_owned) %></td>
+                      <td><%= crypto.amount_owned %></td>
                       <% @profit_lost += (x["price_usd"].to_d * crypto.amount_owned) - (crypto.cost_per * crypto.amount_owned) %>
                     <% end %>
                   <% end %>
-                  <td>$<%= crypto.cost_per %></td>
-                  <td><%= crypto.amount_owned %></td>
+                  
+                  
                 </tr>
               <% end %>
             <% end %>

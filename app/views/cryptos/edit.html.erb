@@ -1,7 +1,39 @@
+<%= form_with(model: @crypto, local: true) do |form| %>
+  <% if @crypto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@crypto.errors.count, "error") %> prohibited this crypto from being saved:</h2>
 
-<%= render 'form', crypto: @crypto %>
+      <ul>
+      <% @crypto.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<%= link_to 'Show', @crypto %> |
-<%= link_to 'Back', cryptos_path %>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h2 class="panel-title">Edit Crypto</h2>
+        </div>
+        <div class="panel-body">
+          <%= simple_form_for @crypto do |f| %>
+            <%= f.input :symbol %>
+            <%= f.input :cost_per %>
+            <%= f.input :amount_owned %>
+          <% end %>
+        </div>
+        <div class="panel-footer">
+          <div class="actions">
+            <%= form.submit "Submit", class: "btn btn-primary" %>
+          </div>   
+          <%= form.number_field :user_id, value: current_user.id, type: "hidden" %>
+          <%= link_to 'Back', cryptos_path, class: "btn btn-default" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 
 

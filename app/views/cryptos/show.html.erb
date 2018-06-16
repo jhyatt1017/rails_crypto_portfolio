@@ -11,10 +11,10 @@
 <% end %>
 
 <div class="row">
-  <div class="col-md-6">
+  <div class="col-md-4 col-md-offset-4">
 <div class="panel panel-primary">
   <div class="panel-heading">
-    <h3 class="panel-title"><%= @crypto_name %></h3>   
+    <h3 class="panel-title"><strong><%= @crypto_name %></strong></h3>
     <h6>Amount Owned:  <%= @crypto_amount_owned %></h6>
   </div>
   <div class="panel-body">
@@ -27,13 +27,13 @@
       <strong>Current Price: </strong> $<%= @crypto_price_usd %>
     </p>
     <p>
-      <strong>Percent Changed In Last Hour: </strong> <%= @crypto_percent_change_1h %>%
+      <strong>% Changed In Last Hour: </strong> <%= @crypto_percent_change_1h %>%
     </p>
     <p>
-      <strong>Percent Changed In Last 24 Hours: </strong> <%=  @crypto_percent_change_24h %>%
+      <strong>% Changed In Last 24 Hours: </strong> <%=  @crypto_percent_change_24h %>%
     </p>
     <p>
-      <strong>Percent Changed In Last 7 Days: </strong> <%= @crypto_percent_change_7d %>%
+      <strong>% Changed In Last 7 Days: </strong> <%= @crypto_percent_change_7d %>%
     </p>
     
   </div>
@@ -46,4 +46,3 @@
 </div>
 </div>
 </div>
-

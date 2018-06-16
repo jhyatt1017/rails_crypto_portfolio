@@ -1,29 +1,36 @@
-<h3>Crypto Currency Lookup</h3>
-<br/>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Crypto Currency Lookup</h3>
+      </div>
+      <div class="panel-body">
+        <br> 
+        <%# creating form linked to look_up_path with a method that is POST that loops through sym (for symbol) %>
+        <%= form_tag home_lookup_path, :method => 'POST' do %>
+        <%# create text field, placeholder makes text appear in box until you type, 50 is how long the text field is in length %>
+        <%= search_field_tag :sym, value = nil, options = {style: "height: 30px; width: 500px; border-radius: 5px;", placeholder: "Enter Crypto Symbol"} %>
+        <%# create submit button %>
+        <%= submit_tag 'Lookup Stock Quote', class: "btn btn-primary" %>
+        <% end %>
 
-<%# creating form linked to look_up_path with a method that is POST that loops through sym (for symbol) %>
-<%= form_tag home_lookup_path, :method => 'POST' do %>
-  <%# create text field, placeholder makes text appear in box until you type, 50 is how long the text field is in length %>
-  <%= text_field_tag 'sym', nil, placeholder: "Enter Crypto Symbol", size: 50 %>
-  <%# create submit button %>
-  <%= submit_tag 'Lookup Stock Quote' %>
-<% end %>
-
-<br/><br/>
-
-<% @symbol %>
-
-<% if @symbol %>
-  <% for x in @lookup_coin %>
-    <%# if @symbol entered into the form is x["symbol"] then print out the following otherwise don't do anything %>
-    <% if @symbol == x["symbol"] %>
-    Currency: <%= x["name"] %><br/> 
-    Symbol: <%= x["symbol"] %><br/>
-    Rank: <%= x["rank"] %><br/><br/>
-    Current Price: $<%= x["price_usd"]  %><br/>
-    % Changed in Last Hour: <%= x["percent_change_1h"] %><br/>
-    % Changed in Last 24 Hour: <%= x["percent_change_24h"] %><br/>
-    % Changed in Last 7 Days: <%= x["percent_change_7d"] %><br/>
-    <% end %>
-  <% end %>
-<% end %>
+        <br/>
+        <% @symbol %>
+        <% if @symbol %>
+          <% for x in @lookup_coin %>
+            <%# if @symbol entered into the form is x["symbol"] then print out the following otherwise don't do anything %>
+            <% if @symbol == x["symbol"] %>
+            <strong>Currency:</strong> <%= x["name"] %><br/> 
+            <strong>Symbol:</strong> <%= x["symbol"] %><br/>
+            <strong>Rank:</strong> <%= x["rank"] %><br/><br/>
+            <strong>Current Price:</strong> $<%= x["price_usd"]  %><br/>
+            <strong>% Changed in Last Hour:</strong> <%= x["percent_change_1h"] %><br/>
+            <strong>% Changed in Last 24 Hour:</strong> <%= x["percent_change_24h"] %><br/>
+            <strong>% Changed in Last 7 Days:</strong> <%= x["percent_change_7d"] %><br/>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
