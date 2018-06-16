@@ -7,11 +7,41 @@ class CryptosController < ApplicationController
   # GET /cryptos.json
   def index
     @cryptos = Crypto.all
+    # adding moduels
+    require 'net/http'
+    require 'json'
+    # instance variable thats adding url
+    @url = 'https://api.coinmarketcap.com/v1/ticker/'
+    # @url = 'https://api.coinmarketcap.com/v2/ticker/'
+    # create uri (uniform resource identifer)
+    @uri = URI(@url)
+    # go to the website url
+    @response = Net::HTTP.get(@uri)
+    # grab result and parse it to the json and give the results to coins
+    @lookup_crypto = JSON.parse(@response)
+    # instance variable that is used in crypto/index.html.erb file to calculate
+    @profit_lost = 0
+    
   end
 
   # GET /cryptos/1
   # GET /cryptos/1.json
   def show
+    @cryptos = Crypto.all
+    # adding moduels
+    require 'net/http'
+    require 'json'
+    # instance variable thats adding url
+    @url = 'https://api.coinmarketcap.com/v1/ticker/'
+    # @url = 'https://api.coinmarketcap.com/v2/ticker/'
+    # create uri (uniform resource identifer)
+    @uri = URI(@url)
+    # go to the website url
+    @response = Net::HTTP.get(@uri)
+    # grab result and parse it to the json and give the results to coins
+    @show_crypto = JSON.parse(@response)
+    # instance variable that is used in crypto/index.html.erb file to calculate
+    @profit_lost = 0
   end
 
   # GET /cryptos/new
@@ -66,7 +96,7 @@ class CryptosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_crypto
-      @crypto = Crypto.find_by(params[:id])
+      @crypto = Crypto.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
