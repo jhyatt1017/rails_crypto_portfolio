@@ -21,9 +21,11 @@ class HomeController < ApplicationController
   end
 
   def lookup
+    @cryptos = Crypto.all
     # adding moduels
     require 'net/http'
     require 'json'
+    require 'date'
     # instance variable thats adding url
     @url = 'https://api.coinmarketcap.com/v1/ticker/'
     # @url = 'https://api.coinmarketcap.com/v2/ticker/'
@@ -33,6 +35,7 @@ class HomeController < ApplicationController
     @response = Net::HTTP.get(@uri)
     # grab result and parse it to the json and give the results to coins
     @lookup_coin = JSON.parse(@response)
+    
 
     @symbol = params[:sym]
 
@@ -43,8 +46,10 @@ class HomeController < ApplicationController
 
     # Error message if no currency is entered
     if @symbol == ""
-      @symbol = "Hey, you forgot to enter a currency!"
+      flash.now[:alert] = "You forgot to enter a currency symbol, try again"
     end
+
+
   end
 
 end

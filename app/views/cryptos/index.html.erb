@@ -17,9 +17,8 @@
               <th>Cost Paid Per</th>
               <th>Total Paid</th>
               <th>Total Value</th>
-              <th>Amount Owned</th>
               <th>Profit / Loss</th>
-
+              <th>Amount Owned</th>
             </tr>
           </thead>
 
@@ -35,7 +34,6 @@
                       <td><%= link_to x["name"], crypto %></td>
                       <td><%= x["rank"] %></td>
                       <td>$<%= x["price_usd"] %></td>
-
                       <td>$<%= crypto.cost_per %></td>
                       <td>$<%= crypto.cost_per * crypto.amount_owned %></td>
                       <td>$<%= x["price_usd"].to_d * crypto.amount_owned %></td>
@@ -44,8 +42,7 @@
                       <% @profit_lost += (x["price_usd"].to_d * crypto.amount_owned) - (crypto.cost_per * crypto.amount_owned) %>
                     <% end %>
                   <% end %>
-                  
-                  
+
                 </tr>
               <% end %>
             <% end %>

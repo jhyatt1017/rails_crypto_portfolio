@@ -31,6 +31,7 @@ class CryptosController < ApplicationController
     # adding moduels
     require 'net/http'
     require 'json'
+    require 'date'
     # instance variable thats adding url
     @url = 'https://api.coinmarketcap.com/v1/ticker/'
     # @url = 'https://api.coinmarketcap.com/v2/ticker/'
